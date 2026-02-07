@@ -1,0 +1,16 @@
+fluid-diagnose-bundler/
+├── pkg/
+│   ├── bundler/
+│   │   ├── bundler.go       # Public API
+│   │   ├── layout.go        # File structure builder
+│   │   ├── writer.go        # Atomic file writer
+│   │   ├── redact.go        # Redaction engine
+│   │   └── manifest.go     # manifest.json generator
+│   └── types/
+│       ├── bundle.go
+│       └── manifest.go
+├── examples/
+│   └── example_tree.txt
+├── PHASE0_DESIGN.md
+├── README.md
+└── go.mod
