@@ -15,6 +15,23 @@ This library is the canonical implementation of the Fluid Diagnostic Format (Pha
 *   **Structured**: Generates a `manifest.json` index and organizes files in a strict hierarchy for machine consumption.
 *   **Offline-First**: Does NOT connect to Kubernetes. It expects data to be passed in, making it testable and safe to run anywhere.
 
+
+## Integrations
+
+### fluidctl
+
+This library powers the `fluidctl diagnose dataset --archive` command. 
+
+```bash
+fluidctl diagnose dataset demo-data --archive
+# Output: fluid-diagnose-demo-data-2026xxxx.tar.gz
+```
+
+By decoupling the bundler from the CLI:
+1.  **Determinism**: The CLI guarantees consistent output across different user machines (Mac/Linux/Windows).
+2.  **Safety**: The library handles redaction centrally, preventing accidental leak of secrets via ad-hoc tar commands.
+3.  **Reuse**: The same bundler logic can be imported by the Fluid Operator or CI test runners.
+
 ## Usage
 
 ```go
